@@ -57,3 +57,7 @@ body {
     padding: 0 10px;
   }
   
+.dark-mode {
+    background-color: #2b3945;
+    color: #ffffff;
+  }

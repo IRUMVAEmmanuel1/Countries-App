@@ -34,8 +34,11 @@ function displayCountries(countries) {
   });
 }
 
-function filterByRegion(region) {
-  const filteredCountries = countriesData.filter(country => country.region === region || region === '');
+function filterByRegionAndSearch(region, searchQuery) {
+  const filteredCountries = countriesData.filter(country =>
+    (region === '' || country.region === region) &&
+    country.name.common.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   displayCountries(filteredCountries);
 }
 
@@ -44,7 +47,14 @@ async function initializeApp() {
   displayCountries(countriesData);
 
   regionFilter.addEventListener('change', event => {
-    filterByRegion(event.target.value);
+    const searchQuery = searchInput.value;
+    filterByRegionAndSearch(event.target.value, searchQuery);
+  });
+
+  searchInput.addEventListener('input', () => {
+    const region = regionFilter.value;
+    const searchQuery = searchInput.value;
+    filterByRegionAndSearch(region, searchQuery);
   });
 }
 
