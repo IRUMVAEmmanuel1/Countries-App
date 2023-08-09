@@ -1,4 +1,3 @@
-```markdown
 # REST Countries API Challenge
 
 Welcome to the REST Countries API Challenge project! This web application allows users to explore country information, search for specific countries, filter countries by region, and toggle between dark and light modes. It utilizes the REST Countries API to fetch and present country data.
